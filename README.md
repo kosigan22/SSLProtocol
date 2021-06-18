@@ -9,7 +9,7 @@ into the communication channel(s).
 
 Design and Implementation:
 
-Server
+**Server**:
 The server.java file was implemented using socket programming where it accepts an incoming connection from the client. The server is set up 
 to accept clients on port 8888. After a successful connection with the client, input and output streams are initialized to be able to send 
 and receive data from server to client, and vice versa. First, the server receives a message from the client called client_hello. The server 
@@ -19,7 +19,7 @@ is done with a server_hello_done message. A change cipher spec protocol is condu
 that cipher keys will be utilized. The server then encrypts a generated secret key with the public key. The 
 client will then send a final message and be decrypted by the server to conclude the handshake protocol. 
 
-Client 
+**Client**: 
 The client.java file is used to connect the client to the server. The first step of establishing a connection is by creating a socket, the 
 two parameters used to create the socket object is “localhost” since client and server are on the same system as well as selecting a port 
 number, we used “8888”.  Next we define data input and output streams that would be responsible for sending and receiving data between the 
@@ -29,7 +29,7 @@ receiving messages back from the server the client can move on to the next phase
 continues by sending the change cipher suite as this is the last component required from the client to finish the handshake. Upon completing 
 the handshake, the client will proceed to establishing the chat loop between the client and server. 
 
-Record Layer
+**Record Layer**:
 The record layer is used to provide security with the data being sent between the client and the server. The server will receive the fragments 
 and reconstruct the client’s original message. We decided to use identifiers to represent whitespaces and the end of a client’s message. 
 In our implementation we represent whitespaces with “$#$”, and to signify the end of a client’s message we used “~^”. The fragment size that 
@@ -37,7 +37,7 @@ we decided to use was 3, thus every 3 characters in the altered message will be 
 and will construct the message until the message ends with  “~^”. The server will then remove all identifiers representing the whitespaces 
 and then print out the message.
 
-Chat Loop 
+**Chat Loop**: 
 Once the handshake is completed, the chat loop is able to begin. The chat loop is contained in a while loop structure that is able to 
 iterate infinitely until the program is instructed to stop. Entering the message “exit” will allow the client to leave the program. The 
 client and server implement the record layer, in fragmenting, compressing and decompressing the messages that are sent. 

@@ -32,9 +32,8 @@ the handshake, the client will proceed to establishing the chat loop between the
 **Record Layer**:
 The record layer is used to provide security with the data being sent between the client and the server. The server will receive the fragments 
 and reconstruct the client’s original message. We decided to use identifiers to represent whitespaces and the end of a client’s message. 
-In our implementation we represent whitespaces with “$#$”, and to signify the end of a client’s message we used “~^”. The fragment size that 
-we decided to use was 3, thus every 3 characters in the altered message will be sent to the server. The server will receive these fragments
-and will construct the message until the message ends with  “~^”. The server will then remove all identifiers representing the whitespaces 
+In our implementation we represent whitespaces with “$#$”, and to signify the end of a client’s message we used “~^”. The server will receive these fragments
+and will construct the message until the message ends with “~^”. The server will then remove all identifiers representing the whitespaces 
 and then print out the message.
 
 **Chat Loop**: 
